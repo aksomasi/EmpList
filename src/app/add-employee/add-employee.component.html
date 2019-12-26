@@ -1,0 +1,25 @@
+<div class="col-md-12">
+  <h2 class="text-center"> <span *ngIf="data">Update </span>  <span *ngIf="!data">Add </span> Employee Details</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Employee Name:</label>
+      <input type="name" formControlName="name" placeholder="Name" name="name" class="form-control" id="name">
+    </div>
+
+    <div class="form-group">
+      <label for="age">Employee Age:</label>
+      <input formControlName="age" placeholder="Age" name="age" class="form-control" id="age">
+    </div>
+
+    <div class="form-group">
+      <label for="salary">Employee Salary:</label>
+      <input formControlName="salary" placeholder="Salary" name="salary" class="form-control" id="salary">
+    </div>
+
+    <button class="btn btn-success" [disabled]="addForm.invalid" *ngIf="data">Update</button>
+    <button class="btn btn-success" [disabled]="addForm.invalid" *ngIf="!data">Save</button>
+
+    <button class="btn" (click)="close()">Cancle</button>
+
+  </form>
+</div>
